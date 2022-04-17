@@ -9,7 +9,6 @@ use Illuminate\Database\QueryException;
 
 class LoginController extends Controller
 {
-    //
     public function show(Request $request){
 
         $request->validate([

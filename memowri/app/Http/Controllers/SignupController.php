@@ -34,8 +34,6 @@ class SignupController extends Controller
             $request->session()->put('user', $request->username);
 
             $color=new Color();
-            $color->hex_code="FFFFFF";
-            //TODO: EN CASO DE QUE EL DEFAULT FUNCIONE, REMUEVE
             $color->save();
 
             $cursor=new Cursor();
@@ -45,9 +43,6 @@ class SignupController extends Controller
             $background=new Background();
             $background->id_color=$color->id;
             $background->id_user=$request->username;
-            $background->id_image=NULL;
-
-            //TODO:AGREGA A BACKGROUND QUE EL VALOR DEFAULT DE ID_IMAGE SEA NULO
             $background->save();
 
             return response()->json(['status' => "success",

@@ -151,8 +151,6 @@ class BackgroundController extends Controller
                 }
             }
 
-            //TODO:AGREGA A BACKGROUND QUE EL VALOR DEFAULT DE ID_IMAGE SEA NULO
-
             return response()->json(['status' => "success",
                                     'message'=> "Background updated successfully"],
                                      200);

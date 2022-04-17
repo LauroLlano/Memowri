@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('colors', function (Blueprint $table) {
             $table->id()->comment("Color's unique identifier");
-            $table->string("hex_code")->comment("Hexadecimal value of the color selected for the background");
+            $table->string("hex_code")->default("FFFFFF")->comment("Hexadecimal value of the color selected for the background");
         });
     }
 
