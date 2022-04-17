@@ -1,4 +1,4 @@
 *
-!public/backgrounds
-!private/
+!public/
+!private/backgrounds
 !.gitignore
