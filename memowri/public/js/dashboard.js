@@ -38,6 +38,7 @@ function load()
             showMultipleButtonModal("warning", "Do you want to remove this category? (All notes in the category will be deleted!)", "Yes", "No");
             document.getElementById("modal-accept").addEventListener("click", ()=>{
                 let formCategory=button.parentNode;
+                hideMultipleButtonModal();
                 deleteCategory(formCategory);
             });
         });
@@ -48,8 +49,8 @@ function load()
             noteSelected=button.parentNode.parentNode.parentNode.parentNode;
             showMultipleButtonModal("warning", "Do you want to remove this note?", "Yes", "No");
             document.getElementById("modal-accept").addEventListener("click", ()=>{
-
                 let formNote=button.parentNode;
+                hideMultipleButtonModal();
                 deleteNote(formNote);
             });
         });
@@ -129,6 +130,7 @@ function deleteNote(form)
         return res.json();
     })
     .then(text=>{
+        activateModalCross();
         hideModal();
 
         if(text.status!="success"){
@@ -142,6 +144,7 @@ function deleteNote(form)
     })
     .catch(err=>{
         err.text().then(errorArray=>{
+            activateModalCross();
             hideModal();
             const arr=JSON.parse(errorArray);
             let stringMessage="";
@@ -176,6 +179,7 @@ function deleteCategory(form)
         return res.json();
     })
     .then(text=>{
+        activateModalCross();
         hideModal();
 
         if(text.status!="success"){
@@ -190,6 +194,7 @@ function deleteCategory(form)
     })
     .catch(err=>{
         err.text().then(errorArray=>{
+            activateModalCross();
             hideModal();
             const arr=JSON.parse(errorArray);
             let stringMessage="";

@@ -22,7 +22,7 @@ function load()
             e.preventDefault();
             return false;
         }
-
+        document.getElementById("addcategory-submit").disabled=true;
         submitForm(formCategory, categoryName.value);
     });
 }
@@ -66,6 +66,7 @@ function submitForm(form, categoryName)
         return res.json();
     })
     .then(text=>{
+        document.getElementById("addcategory-submit").disabled=false;
         if(text.status!="success"){
             showSimpleModal(text.status, text.message);
             return;
@@ -73,6 +74,7 @@ function submitForm(form, categoryName)
         showModalAccept("success", text.message, "Continue", "/");
     })
     .catch(err=>{
+        document.getElementById("addcategory-submit").disabled=false;
         errorProcessor(err);
     })
 }

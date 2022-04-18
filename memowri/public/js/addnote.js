@@ -24,7 +24,7 @@ function load()
             e.preventDefault();
             return false;
         }
-
+        document.getElementById("addnote-submit").disabled=true;
         submitForm(formNote, categoryField.value, descriptionField.value);
     });
 }
@@ -73,6 +73,7 @@ function submitForm(form, category, noteDescription)
         return res.json();
     })
     .then(text=>{
+        document.getElementById("addnote-submit").disabled=false;
         if(text.status!="success"){
             showSimpleModal(text.status, text.message);
             return;
@@ -80,6 +81,7 @@ function submitForm(form, category, noteDescription)
         showModalAccept('success', text.message, 'Continue', '/');
     })
     .catch(err=>{
+        document.getElementById("addnote-submit").disabled=false;
         errorProcessor(err);
     });
 }

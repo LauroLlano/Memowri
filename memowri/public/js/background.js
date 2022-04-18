@@ -69,6 +69,8 @@ function load()
             e.preventDefault();
             return false;
         }
+        document.getElementById('file-container').disabled=true;
+        document.getElementById('background-submit').disabled=true;
 
         let rgb = backgroundColor.match(/\d+/g);
         let rgbBackground={
@@ -143,6 +145,8 @@ function submitForm(form, backgroundColor, opacityLevel, gradientCursor, colorCu
         return res.json();
     })
     .then(text=>{
+        document.getElementById('file-container').disabled=false;
+        document.getElementById('background-submit').disabled=false;
         if(text.status!="success"){
             showSimpleModal(text.status, text.message);
             return;
@@ -150,6 +154,8 @@ function submitForm(form, backgroundColor, opacityLevel, gradientCursor, colorCu
         showModalAccept('success', text.message, 'Continue', '/');
     })
     .catch(err=>{
+        document.getElementById('file-container').disabled=false;
+        document.getElementById('background-submit').disabled=false;
         errorProcessor(err);
     });
 

@@ -75,6 +75,16 @@ function hideModal(){
     activeModal.hide();
 }
 
+function hideMultipleButtonModal(){
+    document.getElementById("modal-accept").disabled=true;
+    document.getElementById("modal-cancel").disabled=true;
+    document.getElementById("modal-cross").disabled=true;
+}
+
+function activateModalCross(){
+    document.getElementById("modal-cross").disabled=false;
+}
+
 function showMultipleButtonModal(type, message, acceptButtonText, cancelButtonText)
 {
 

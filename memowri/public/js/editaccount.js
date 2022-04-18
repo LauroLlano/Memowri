@@ -43,7 +43,7 @@ function load()
             e.preventDefault();
             return false;
         }
-
+        document.getElementById("editaccount-submit").disabled=true;
         submitForm(editForm, oldPassword.value, newPassword.value);
     });
 }
@@ -100,6 +100,7 @@ function submitForm(form, oldPass, newPass)
         return res.json();
     })
     .then(text=>{
+        document.getElementById("editaccount-submit").disabled=false;
         if(text.status!="success"){
             showSimpleModal(text.status, text.message);
             return;
@@ -107,6 +108,7 @@ function submitForm(form, oldPass, newPass)
         showModalAccept("success", text.message, "Continue", "/");
     })
     .catch(err=>{
+        document.getElementById("editaccount-submit").disabled=false;
         errorProcessor(err);
     });
 }

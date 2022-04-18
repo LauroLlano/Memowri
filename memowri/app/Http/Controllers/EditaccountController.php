@@ -64,7 +64,7 @@ class EditaccountController extends Controller
         ]);
 
         try{
-            $user=User::select('username AS id', 'password')->where('username', '=', session()->get('user'))->get()->first();
+            $user=User::where('username', '=', session()->get('user'))->get()->first();
 
 
             if($user->password!=$request->passwordOld){

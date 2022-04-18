@@ -39,7 +39,7 @@
                     {{ $background->image!=NULL? 1.0 - $background->image->opacity: 1}}
                 )
             ),
-            url({{ ($background->image!=NULL ? asset($background->image->route) : "") }}),
+            url({{ ($background->image!=NULL ? asset($background->image->route) : "") }})
             no-repeat center center fixed;
            background-size: cover;
         }
@@ -51,7 +51,7 @@
             <div class="modal-content">
                 <div class="modal-header primary">
                     <h5 class="modal-title" id="modal-title">Title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" id="modal-cross" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="modal-body">
                     <p id="modal-message">Message</p>

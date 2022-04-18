@@ -22,7 +22,7 @@ function load()
             e.preventDefault();
             return false;
         }
-
+        document.getElementById("login-submit").disabled=true;
         submitForm(formLogin, usernameField.value, passwordField.value);
     });
 }
@@ -59,6 +59,7 @@ function submitForm(form, username, password)
         return res.json();
     })
     .then((text)=>{
+        document.getElementById("login-submit").disabled=false;
          if(text.status!="success"){
             showSimpleModal(text.status, text.message);
             return;
@@ -66,6 +67,7 @@ function submitForm(form, username, password)
         window.location="./";
     })
     .catch(err=>{
+        document.getElementById("login-submit").disabled=false;
         errorProcessor(err);
     });
 }

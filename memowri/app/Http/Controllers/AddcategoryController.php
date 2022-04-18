@@ -71,6 +71,15 @@ class AddcategoryController extends Controller
                                         200);
             }
 
+            if(Category::join('users', 'categories.id_user', '=', 'users.username')
+                        ->where('users.username', '=', session()->get('user'))
+                        ->count()>=5)
+            {
+                return response()->json(['status' => "warning",
+                                        'message'=> "You can only have 5 categories in your account."],
+                                        200);
+            }
+
             $category=new Category();
             $category->name=$request->name;
             $category->id_user=session()->get('user');

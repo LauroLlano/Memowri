@@ -3,8 +3,8 @@
 @section('title', 'Add new note')
 
 @push('scripts')
-    <script src="./js/utilities.js"></script>
-    <script src="./js/addnote.js"></script>
+    <script src="{{ url('/js/utilities.js') }}"></script>
+    <script src="{{ url('/js/addnote.js') }}"></script>
 @endpush
 
 @section('content')

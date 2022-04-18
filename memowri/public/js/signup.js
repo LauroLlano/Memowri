@@ -31,13 +31,13 @@ function load()
     });
 
     document.getElementById("signup-submit").addEventListener("click", e=>{
-        /*if(!areFieldsValidated(usernameField, passwordField))
+        if(!areFieldsValidated(usernameField, passwordField))
         {
             showSimpleModal("warning", "Complete the fields before proceeding");
             e.preventDefault();
             return false;
-        }*/
-
+        }
+        document.getElementById("signup-submit").disabled=true;
         submitForm(formSignup, usernameField.value, passwordField.value);
     });
 }
@@ -103,6 +103,7 @@ function submitForm(form, username, password)
         return res.json();
     })
     .then((text)=>{
+        document.getElementById("signup-submit").disabled=false;
         if(text.status!="success"){
             showSimpleModal(text.status, text.message);
             return;
@@ -110,6 +111,7 @@ function submitForm(form, username, password)
         showModalAccept("success", text.message, "Continue", "./");
     })
     .catch(err=>{
+        document.getElementById("signup-submit").disabled=false;
         errorProcessor(err);
     });
 }
