@@ -55,7 +55,11 @@ Once you've downloaded/cloned the files, you have to set up your configuration i
    ```
    _If you haven't changed the settings for username and password in XAMPP, most likely the username will be `root`, and password will be left empty._
 
-5. _After creating the `.env` file and your database, we'll have to first migrate the tables to your database using artisan. Run on the terminal the next line to create the tables:_
+5. _Write the next line in the terminal to generate an API key to the application:_
+   ```sh
+   php artisan key:generate
+   ```
+6. _After creating the `.env` file and your database, we'll have to first migrate the tables to your database using artisan. Run on the terminal the next line to create the tables:_
    ```sh
    php artisan migrate
    ```
