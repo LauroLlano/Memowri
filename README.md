@@ -76,7 +76,7 @@ To access the page, open the [localhost](http://127.0.0.1:8000/) page.
 ### Technologies used ⌨️
 
 * ***Bootstrap v5.1*** - Used in front-end design
-* ***Vanilla javascript*** - Used for validating fields and managing submits
+* ***Vanilla javascript*** - Used for validating fields and managing submits. For sending asynchronous information, I used the Fetch API, included with it.
 * ***Laravel v9.5.1*** - Used for the back-end. Tables are also created with Laravel using its migration feature
 
 ---
